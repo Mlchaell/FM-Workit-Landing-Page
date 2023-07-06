@@ -90,8 +90,7 @@ h3 {
   align-items: center;
   gap: 5rem;
   padding-bottom: 10rem;
-
-  /* TODO: Round bottom here */
+  border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
 
   position: relative;
 }
@@ -102,14 +101,27 @@ h3 {
   }
 }
 
-.header > h1 {
-  color: #fff;
-  margin-top: 3rem;
+@media only screen and (min-width: 768px) {
+  .header {
+    border-radius: 0% 0% 50% 50% / 0% 0% 20% 20%;
+  }
 }
 
-@media only screen and (min-width: 360px) {
+.header > h1 {
+  color: #fff;
+  margin-top: 1rem;
+}
+
+@media only screen and (min-width: 500px) {
   .header > h1 {
     margin: 0 2rem;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .header > h1 {
+    max-width: 12ch;
+    margin-top: 4rem;
   }
 }
 
@@ -119,11 +131,24 @@ h3 {
   margin: 0 auto;
 }
 
+@media only screen and (min-width: 768px) {
+  .hero__img {
+    max-width: 50rem;
+  }
+}
+
 .info {
   display: flex;
   flex-direction: column;
   gap: 5rem;
 }
+
+@media only screen and (min-width: 1000px) {
+  .info {
+    margin-top: 8rem;
+  }
+}
+
 
 .infos__circle {
   font-size: 2rem;
@@ -134,17 +159,37 @@ h3 {
   margin: 0 auto;
 }
 
+@media only screen and (min-width: 768px) {
+  .infos > h3 {
+    margin: 2rem 0;
+  }
+}
+
 .infos > .body {
   color: var(--clr-primary-500);
+}
+
+@media only screen and (min-width: 768px) {
+  .infos > .body {
+    max-width: 50ch;
+    margin: 0 auto;
+  }
 }
 
 .apply {
   margin-top: 30rem;
 }
 
+@media only screen and (min-width: 1100px) {
+  .apply {
+    display: grid;
+    place-content: center;
+  }
+}
+
 .apply__founder {
   margin: 0 auto;
-  max-width: 80%;
+  max-width: 30rem;
 
   position: absolute;
   transform: translateY(-75%) translateX(-50%);
@@ -158,8 +203,30 @@ h3 {
   gap: 2rem;
   background-color: var(--clr-primary-800);
   padding: 2rem;
+  margin: 0 auto;
 
   position: relative;
+}
+
+@media only screen and (min-width: 768px) {
+  .apply__founder {
+    display: none;
+  }
+
+  .apply__main-section {
+    align-items: start;
+    text-align: start;
+    max-width: 168ch;
+    padding: 3rem;
+  }
+
+  .apply__main-section::before {
+    content: "";
+    background-image: url("assets/images/image-founder.webp");
+    width: 10rem;
+    height: 10rem;
+    transform: translateY(-20rem);
+  }
 }
 
 .apply__main-section .heading-s,
@@ -248,6 +315,9 @@ h3 {
 
 .btn:hover {
   cursor: pointer;
+  color: var(--clr-accent-200);
+  background-color: var(--clr-primary-800);
+  border: 1px solid var(--clr-accent-200);
 }
 
 .btn__no-bg {
